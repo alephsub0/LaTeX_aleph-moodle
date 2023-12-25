@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was generated on 2023-12-25 by XeLaTeX -->
+<!-- running on *NIX with the package moodle v0.9 -->
+
+<quiz>
+ 
+<question type="category">
+  <category>
+    <text>$course$/top/Preguntas</text>
+  </category>
+</question>
+ 
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[Pregunta-01]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>¿Cuál es la imagen de la función \( f\colon \mathbb {R}\rightarrow \mathbb {R}\) tal que \(x\mapsto x^2\)? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html">
+    <text><![CDATA[<p>La respuesta correcta es \(\left [0,+\infty \right [\)</p>]]></text>
+  </generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\mathbb {R}\)</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>\(\left [0,+\infty \right [\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(\left ]-\infty ,0\right ]\)</p>]]></text>
+  </answer>
+</question>
+<question type="numerical">
+  <name format="html">
+    <text><![CDATA[Pregunta-02]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>El resultado de \(1+1\) es: </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html">
+    <text><![CDATA[<p>La suma es igual a \(2\).</p>]]></text>
+  </generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <answer fraction="100" format="plain_text">
+    <text>2</text>
+    <tolerance>0.1</tolerance>
+  </answer>
+</question>
+<question type="shortanswer">
+  <name format="html">
+    <text><![CDATA[Pregunta-03]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Considere la relación \(\{(a,b), (a,c), (d,c), (c,c)\}\), el dominio de la relación es (colocar los elementos separados por comas, en orden alfabético y sin espacios): </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html">
+    <text><![CDATA[<p>El dominio de la relación es \(\{a,c,d\}\)</p>]]></text>
+  </generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <usecase>0</usecase>
+  <answer fraction="100" format="plain_text">
+    <text>a,c,d</text>
+  </answer>
+</question>
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[Pregunta-04]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Considere la <B>transformación lineal</B> definida por \[ T(x) = \{2x_1,x_1+x_2\}. \] ¿Cuál de los siguientes vectores pertenece al núcleo de \(T\)? </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html">
+    <text><![CDATA[<p>Para cumplir la restricción del problema, necesitamos que \(d((a,1),(1,-1)) = d((a,1),(-1,1))\), es decir, necesitamos que \(\mathbb {R}\) \[ \sqrt {(a-1)^2+(1-(-1))^2}=\sqrt {(a-(-1))^2+(1-1)^2}, \] cuya solución es \(a=1\).</p>]]></text>
+  </generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((1,-1)\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((2,-2)\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((0,1)\)</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>\((0,0)\)</p>]]></text>
+  </answer>
+</question>
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[Pregunta-06]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Esta pregunta está hecha para probar algunos caracteres especiales: Pongamos una tabla que le haga compañía: \[ \begin {array}{c|c} 1 & 2 \\\hline 3 & 4 \end {array} \] y una <CODE>aligned</CODE>: \[ \begin {aligned} a & = b\\ \lim _{x\to 0 }f(x) & = b \end {aligned} \] </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((1,-1)\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((2,-2)\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\((0,1)\)</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>\((0,0)\)</p>]]></text>
+  </answer>
+</question>
+ 
+</quiz>

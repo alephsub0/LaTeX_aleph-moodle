@@ -15,6 +15,7 @@
 
 % -- Paquetes adicionales
 \usepackage{aleph-comandos}
+\moodleregisternewcommands
 \usepackage{amssymb}
 \usepackage{mathpazo}
 
@@ -57,20 +58,18 @@
     \item $0$
 \end{multi}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{numerical}[tolerance=0.01]{myquestion} 
     Approximatevalueof$\sqrt{2}$? 
     \item[tolerance={1e-1}]1.4142 
     \item[fraction=20,feedback={twicethis!}]7.0711e-1 \item[fraction=0,feedback={Wrong!}] * 
 \end{numerical}
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{numerical}[tolerance=0.01]{myquestion} 
     Approximatevalueof$\sqrt{2}$? 
     \item 1.4142 
 \end{numerical}
-
 
 \end{quiz}
 
