@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[margin=2.5cm,left=3.5cm]{geometry}
+\usepackage{changelog}
 
 \usepackage{mathpazo}
 \usepackage{longtable}
@@ -21,7 +22,7 @@
 
 \title{\file{aleph-moodle.sty}}
 \author{Proyecto Alephsub0\\ Jonathan Ortiz y Andr\'es Merino}
-\date{2020-08-17\\ Versión 1.0}
+\date{2023-12-25\\ Versión 2.0}
 
 \usepackage[colorlinks,linkcolor=teal,urlcolor=teal,
    citecolor=black,bookmarks=true]{hyperref}
@@ -32,76 +33,55 @@
 \maketitle
  
 \begin{abstract}
-    \file{aleph-moodle.sty} es un paquete creado para utilizar los comandos del paquete \file{aleph-comandos.sty} en la generación de bancos de preguntas que serán exportados a Moodle mediante el paquete \file{moodle.sty}. Esta paquete fue generada dentro del proyecto Alephsub0 (\url{https://www.alephsub0.org/}).
+    \file{aleph-moodle.sty} es un paquete que implementa varias modificaciones el funcionamiento del paquete |moodle|. Esta paquete fue generada dentro del proyecto Alephsub0 (\url{https://www.alephsub0.org/}).
 \end{abstract}
 
 \section{Introducción}
 
-El paquete \file{aleph-moodle.sty} es generado por Jonathan Ortiz y traduce los comandos definidos en \file{aleph-comandos.sty} a su versión del paquete \file{moodle.sty}.
+El paquete \file{aleph-moodle.sty} es generado por Jonathan Ortiz e implementa varias modificaciones al paquete |moodle.sty|.
 
+\section{Modificaciones}
 
+Las modificaciones implementadas al paquete |moodle.sty| son las siguientes:
+
+\begin{enumerate}
+    \item Formato retroalimentación
+    \item Cambio en los estilos de enumeración del tipo de pregunta |multi|
+    \item Cambio de formato de la retroalimentación numérica
+    \item Cambio de formato de la retroalimentación de respuesta corta
+    \item Eliminación del total de puntos
+    \item Eliminación de las etiquetas en el tipo multiopción
+    \item Eliminación de las etiquetas en el tipo numérico
+    \item Corrección del comando pm
+\end{enumerate}
+
+Para una mejor comprensión de las modificaciones, se recomienda consultar la sección de implementación.
 
 \section{Uso y opciones}
 
-Para cargar la clase se utiliza: \cs{usepackage}|{aleph-moodle}|.
-Con esto, se generará un archivo |xml| con el banco de preguntas para subir a Moodle. En caso de usar Overleaf, se puede acceder al archivo en los archivos generados del proyecto; para acceder a los archivos generados, ver este enlace \href{https://www.overleaf.com/learn/how-to/View_generated_files}{este enlace}.
+Para cargar la clase se utiliza: \cs{usepackage}|{aleph-moodle}|. Para la generación del archivo |xml| el motor de compilación debe ser XeLaTeX o LuaLaTeX. Con esto, se obtiene el banco de preguntas para subir a Moodle. En el caso de requerir únicamente el archivo |pdf|, se debe utilizar pdfLaTeX.
+
+En caso de usar Overleaf, se puede acceder al archivo en los archivos generados del proyecto; para acceder a los archivos generados, ver este enlace \href{https://www.overleaf.com/learn/how-to/View_generated_files}{este enlace}.
 
 Para visualizar un ejemplo puedes acceder al repositorio de GitHub de este paquete (clic \href{https://github.com/mate-andres/LaTeX_aleph-moodle}{aquí}) o buscarlo en la galería de plantilla de Overleaf (clic \href{https://www.overleaf.com/latex/templates/ejemplo-de-banco-de-preguntas-para-exportar-a-moodle/nxkrctpyvzhn}{aquí}).
     
+\subsection{Paquete \texttt{aleph-comandos.sty}}
 
-\DescribeMacro{draft} 
-    Este paquete tiene una única opción: |draft|, la cual es pasada al paquete |moodle.sty|. Cuando esta opción es incluida no se genere el archivo |xml| (ver docuemntación del paquete moodle).
+Para el uso de los comandos definidos en el paquete |aleph-comandos.sty|, se debe cargar el paquete |aleph-comandos.sty| antes de cargar el paquete |aleph-moodle.sty| y además se debe utilizar el comando |\moodleregisternewcommands| entre la carga de ambos paquetes.
 
-
-\section{Comandos}
-
-Los comandos proporcionados por el presente paquete son los mismo que los del paquete |aleph-comando.sty|, únicamente se generan las definiciones necesarias para tener compatibilidad con el paquete |moodle.sty|.
-
-\section{Alcances}
-
-Con este paquete se pueden utilizar todos los comandos propios de \LaTeX\ y del paquete |aleph-comando.sty|, salvo
-
-\begin{itemize}
-    \item \cs{suc}
-    \item \cs{comentario}
-    \item \cs{Mat} siempre tiene cuerpo los reales $\R$.
-\end{itemize}
-
-Además, permite utilizar la mayoría de las opciones de la plataforma Moodle: Elección de varias respuestas correctas, presentar retroalimentación en cada pregunta, ingreso de respuestas númericas, utilización de figuras, etc.
-
+\begin{verbatim}
+    \usepackage{aleph-moodle}
+    \moodleregisternewcommands
+    \usepackage{aleph-comandos}
+\end{verbatim}
 
 \section{Limitaciones}
 
-La conversión del archivo |tex| a formato |xml| (moodle) no es posible cuando existen tildes, eñes, doble barra invertida |\\|, signo de abrir interrogación |?`|, ni llaves. De necesitarse la escritura de estos caracteres se debe reemplazarlos de la siguiente manera:
+A partir de la versión 0.6a del paquete |moodle.sty| es posible utilizar XeLaTeX para la compilación, esto permite el uso nativo de tildes y eñes, etc. No obstante en el caso de compilar con XeLaTeX o LuaLaTeX el archivo |pdf|, presenta problemas con las fuentes y caracteres especiales en el pdf.
 
-\begin{center}
-    \begin{tabular}{cc}
-    \hline
-        Comando & Acción \\
-    \hline
-        |\'a| & á \\
-       |\'e| & é \\
-       |\'i| & í \\
-       |\'o| & ó \\
-       |\'u| & ú \\
-       |\~n| & \~n \\
-       |\cr| & |\\| \\
-       |\lbrace | $\cdot$ |\rbrace|
-       &$\lbrace \cdot \rbrace$\\
-        |&iquest| & ?`\\
-    \hline
-    \end{tabular}
-\end{center}
-
-Además, como el ambiente |aling*| es matemático en LaTeX, al momento de realizar la conversión a Moodle, no lo reconoce como comando matemático. La forma de evitar esto es utilizar el ambiente |aligned|, el cual se comporta de forma equivalente al |align*|, pero este debe ser utilizado dentro de un ambiente matemático como \$ o corchetes. Esto se debe hacer con cada ambiente que sea estrictamente matemático.
-
-Al reemplazar ?` por |&iquest|, se produce un error al compilar en \LaTeX, este error no tiene efecto al generar el archivo |xml| y todo marcha bien al subir el archivo a Moodle.
-
-Para adjuntar figuras, el archivo con la figura debe estar dentro de la misma carpeta que está el archivo principal sino, a pesar de no haber errores al compilar, en el Moodle no se cargará la figura.
+Para una mejor comprensión de las limitaciones de este paquete, se recomienda consultar \url{https://ctan.org/pkg/moodle}.
 
 \section{Sugerencias}
-
-La mejor forma de realizar cuestionarios para Moodle mediante la utilización del paquete |aleph-moodle.sty| es escribir de manera normal todo el cuestionario en modo |draft| (\cs{usepackage}|[draft]{aleph-moodle}|) y al finalizar su revisión: buscar-reemplazar todos las tildes, eñes, doble barra invertidas y ?' por sus comandos respectivos.
 
 Para adjuntar imágenes, todo funciona muy bien si utilizamos formato .png y dentro de |\includegraphics[]{}|, recordando que las únicas opciones habilitadas para este es solo ancho y alto.
 
@@ -109,6 +89,35 @@ Para una explicación completa de las demás opciones que se pueden utilizar con
 
 Cualquier problema, por favor reportarlo a\\
 jonathan.ortiz.c347@gmail.com
+
+\begin{changelog}[author=Andés Merino \& Jonathan Ortiz,
+    sectioncmd=\section]
+    % version 2.0
+    \begin{version}[author=Andés Merino \& Jonathan Ortiz ,v=2.0,
+        date=2023-11-27]
+        \removed
+        \item Se eliminan las adaptaciones a los comandos de \texttt{aleph-comandos.sty} debido a que ya no son necesarias.
+        \added
+        \item Formato retroalimentación
+        \item Cambio en los estilos de enumeración del tipo de pregunta |multi|
+        \item Cambio de formato de la retroalimentación numérica
+        \item Cambio de formato de la retroalimentación de respuesta corta
+        \item Eliminación del total de puntos
+        \item Eliminación de las etiquetas en el tipo multiopción
+        \item Eliminación de las etiquetas en el tipo numérico
+        \item Corrección del comando pm
+        \changed
+        \item Se modifica el comportamiento de la compilación de acuerdo al motor de compilación usado.
+    \end{version}
+    % version 1.0
+    \shortversion{v=1.0,
+    date=2020-01-07,
+    changes=Primera versión del paquete \texttt{aleph-moodle}}
+    % version 0.1
+    \shortversion{v=0.1,
+    date=2018-08-06,
+    changes=Última versión del paquete \texttt{mooodleEPN}}
+\end{changelog}
 
 \newpage
 \DocInput{aleph-moodle.dtx}

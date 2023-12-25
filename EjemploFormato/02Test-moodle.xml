@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was generated on 2023-12-25 by XeLaTeX -->
+<!-- running on *NIX with the package moodle v0.9 -->
+
+<quiz>
+ 
+<question type="category">
+  <category>
+    <text>$course$/top/Preguntas-OpMult</text>
+  </category>
+</question>
+ 
+<question type="multichoice">
+  <name format="html">
+    <text><![CDATA[NReales-OpMult-01]]></text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p>Dados \(x\in \mathbb {R}\), si \(x^2=4\) entonces: </p>]]></text>
+  </questiontext>
+  <defaultgrade>1.0</defaultgrade>
+  <generalfeedback format="html"><text/></generalfeedback>
+  <penalty>0.10</penalty>
+  <hidden>0</hidden>
+  <single>true</single>
+  <shuffleanswers>1</shuffleanswers>
+  <answernumbering>abc</answernumbering>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(x=2\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>\(x=-2\)</p>]]></text>
+  </answer>
+  <answer fraction="100" format="html">
+    <text><![CDATA[<p>\(\pm 2\)</p>]]></text>
+  </answer>
+  <answer fraction="0" format="html">
+    <text><![CDATA[<p>Ninguna respuesta</p>]]></text>
+  </answer>
+</question>
+ 
+</quiz>
