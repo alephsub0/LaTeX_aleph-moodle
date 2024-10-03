@@ -1,8 +1,21 @@
 %%
-%% This is file `aleph-notas-beta.cls',
+%% This is file `aleph-notas.cls',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% aleph-notas.dtx  (with options: `aleph-notas')
+%% 
+%% This is a generated file.
+%% LaTeX class for typesetting notes
+%% 
+%% Copyright (C) 2024 by Andrés Merino <aemerinot@gmail.com>
+%% 
+%% Para un mejor uso y entendimiento de la actual clase,
+%% consultar la documentación.
 %% 
 \NeedsTeXFormat{LaTeX2e}[2009/09/24]
-\ProvidesClass{aleph-notas-beta}[2022/08/05 v0.1]
+\ProvidesClass{aleph-notas}[2023/11/27 v2.0]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Inicialización
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,21 +35,25 @@
 %%  Opciones predeterminadas de tamaño de página |compacto| y |amplio|.
 \DeclareOption{amplio}{
     \PassOptionsToPackage{paperwidth=195mm,paperheight=265mm,twoside,
-    inner=2.2cm,outer=2.2cm,top=2.25cm,bottom=2.25cm}{geometry}}
+    inner=2.2cm,outer=2.2cm,top=2.25cm,bottom=2.25cm,
+    headsep=5mm}{geometry}}
 \DeclareOption{compacto}{
     \PassOptionsToPackage{paperwidth=160mm,paperheight=240mm,twoside,
-    inner=1.7cm,outer=1.7cm,top=2cm,bottom=2cm}{geometry}}
+    inner=1.7cm,outer=1.7cm,top=2cm,bottom=2cm,
+    headsep=5mm}{geometry}}
 \DeclareOption{a4}{
     \PassOptionsToPackage{paperwidth=210mm,paperheight=297mm,twoside,
-    inner=2.2cm,outer=2.2cm,top=2.25cm,bottom=2.25cm,headheight=14pt}{geometry}}
+    inner=2.2cm,outer=2.2cm,top=2.25cm,bottom=2.25cm,
+    headheight=14pt,headsep=5mm}{geometry}}
 \DeclareOption{a5}{
     \PassOptionsToPackage{paperwidth=148mm,paperheight=210mm,twoside,
-    inner=1cm,outer=1cm,top=2cm,bottom=2cm}{geometry}}
+    inner=1cm,outer=1cm,top=2cm,bottom=2cm,
+    headsep=5mm}{geometry}}
 %%  Opción para desplegar comentarios
 \DeclareOption{comentarios}{\setboolean{comentarios}{true}}
 %%  Opción para desplegar códigos
 \DeclareOption{codigo}{\setboolean{codigo}{true}}
-%%  Opciones predeterminadas son |compacto| y |10pt|.
+%%  Opciones predeterminadas son |compacto|, y |10pt|.
 \ExecuteOptions{compacto,10pt}
 \ProcessOptions\relax
 \LoadClass{article}
@@ -71,6 +88,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% --- Paquetes de tipografía
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% El siguiente comando define las opciones de tipografía a utilizar de acuerdo al tipo de compilador
 \newcommand{\fuente}[1]{
     \ifthenelse{\equal{#1}{mathpazo}}
     {
@@ -100,8 +118,8 @@
             \RequirePackage{fontspec}
             \setmainfont{montserrat}
             \DeclareSymbolFont{operators}{\encodingdefault}{\familydefault}{m}{n}
-            \renewcommand{\labelitemi}{$\bullet$}
             \DeclareMathSizes{10}{10.78}{7}{7}
+            \renewcommand{\labelitemi}{$\bullet$}
         \fi
     }{}
 }
@@ -169,8 +187,8 @@
     \textbf{\textsc{\large\@institucion
     \normalsize
     \ifthenelse{
-            \isundefined{\@carrera} 
-            \OR 
+            \isundefined{\@carrera}
+            \OR
             \isundefined{\@asignatura}
         }
         {
@@ -227,17 +245,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Estilo de sección
 \titleformat{\section}[display]
-    {\vspace*{-2mm}\bfseries\scshape\centering}
-    {}{1ex}
-    {\color{colortext}\large\titlerule\vspace{.05ex}
+    {\bfseries\scshape\centering}
+    {}{0ex}
+    {\color{colortext}\large\titlerule\vspace{0.25ex}
     \thesection.\ }
-    [\color{colortext}\vspace{.2ex}\titlerule]
+    [\color{colortext}\titlerule]
+\titlespacing{\section}
+    {0pt}
+    {-0.5ex plus 1ex}
+    {2.3ex plus .5ex}
 %%  Estilo de sección no numerada
 \titleformat{name=\section,numberless}[display]
-    {\vspace*{-2mm}\bfseries\scshape\centering}
-    {}{1ex}
-    {\color{colortext}\large\titlerule\vspace{.05ex}}
-    [\color{colortext}\vspace{.2ex}\titlerule]
+    {\bfseries\scshape\centering}
+    {}{0ex}
+    {\color{colortext}\large\titlerule\vspace{.25ex}}
+    [\color{colortext}\titlerule]
 %%  Estilo subsecciones
 \titleformat{\subsection}
     {\color{colortext}\normalsize\bfseries}
@@ -258,7 +280,7 @@
     \tcbset{ color/.code = {\def\tcb@@color{#1} } }
 \def\tcb@@icono{{\large\faWarning}}
     \tcbset{ icono/.code = {\def\tcb@@icono{#1} } }
-%%  Estilo de teorema
+%%  Estilo de teorema.
 \newtheoremstyle{estiloteorema}%
     {9pt}{9pt}{}{0pt}
     {\bfseries\color{\tcb@@color}}
@@ -286,7 +308,7 @@
     drop fuzzy shadow,
     left=6mm,right=2mm,top=0.5mm,bottom=0.5mm,
     sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
-    parbox=false,
+    % parbox=false,
     underlay unbroken and last = {%
         \path[fill=tcbcolback!80!black]
         ([yshift=3mm]interior.south east) --++ (-0.4,-0.1) --++ (0.1,-0.2);
@@ -311,7 +333,7 @@
     top=0.5mm,bottom=0.5mm,left=2mm,right=2mm,
     fontupper=\normalsize,
     code={\refstepcounter{\tcb@@contador}},
-    parbox=false,
+    % parbox=false,
     % Dibujo del título
     overlay unbroken and first = {
         % Borde superior grueso
@@ -368,7 +390,7 @@
 \newtcolorbox{advertencia}
     {color=yellow,postit}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% --- Ambiente opcionales
+%% --- Ambientes opcionales
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Estilo de comentarios para el docente
 \ifthenelse{\boolean{comentarios}}{
