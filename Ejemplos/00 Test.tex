@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+% Actualizado en febrero de 2024
+% Funciona con TeXLive 2022
+% Para obtener solo el pdf, compilar con pdfLaTeX. 
+% Para obtener el xml compilar con XeLaTeX.
+
+% -- Paquetes requeridos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% \usepackage{aleph-moodle}
+\usepackage[]{moodle}
+
+\usepackage[margin=2cm]{geometry}
+
+\moodleregisternewcommands
+\newcommand{\hola}{hola}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quiz}{Preguntas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{multi}[]%
+    % - Indentificador
+    {Pregunta-01}
+    % - Enunciado
+    \hola
+    % $9.11>9.9$
+    % 9.11>9.9
+    \item* Verdadero
+    \item Falso
+\end{multi}
+
+\end{quiz}
+
+\end{document}

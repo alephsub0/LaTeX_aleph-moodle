@@ -288,6 +288,26 @@
    \moodle@preFeedback \emph{$\rightarrow$ \moodle@feedback}%
  \fi
 }%
+\def\moodle@print@clozenumerical@answer@int@int#1\@rdelim{%
+  \ifx\moodle@fraction\@hundred
+    \def\moodle@clozenumericalprint@fraction{$~\checkmark$}%
+  \else
+    \moodle@checkfraction
+    \edef\moodle@clozenumericalprint@fraction{$(~\moodle@fraction\%)$}%
+  \fi
+  \ifnum\z@=\moodle@tolerance
+    \def\moodle@clozenumericalprint@tolerance{}%
+  \else
+    \edef\moodle@clozenumericalprint@tolerance{$\,\pm\,$\moodle@printnum{\moodle@tolerance}}%
+  \fi
+  \xdef\test@i{\trim@spaces{#1}}%
+  \ifx\test@i\@star
+    \xdef\moodle@clozenumericalprint@line{#1~\moodle@clozenumericalprint@fraction & \expandonce\emph{\expandonce\moodle@feedback}}%
+  \else
+    \xdef\moodle@clozenumericalprint@line{\moodle@printnum{#1}\moodle@clozenumericalprint@tolerance~\moodle@clozenumericalprint@fraction & \expandonce\emph{\expandonce\moodle@feedback}}%
+  \fi
+  \xa\g@addto@macro\xa\cloze@numerical@table@text\xa{\moodle@clozenumericalprint@line \\\hline}%
+}%
 %    \end{macrocode}
 % \iffalse
 %%  Y ¡se acabó!
